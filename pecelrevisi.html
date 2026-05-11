@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pecel Seleraku Premium</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fef9f0;
+    color:#2e241f;
+    overflow-x:hidden;
+    transition:0.4s;
+}
+
+/* LOADING */
+
+#loading{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#b45f2b;
+    z-index:99999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:3rem;
+    font-weight:900;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+/* NAVBAR */
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+    flex-wrap:wrap;
+    border-bottom:2px dashed #b45f2b;
+}
+
+.logo h1{
+    font-size:2.5rem;
+    color:#b45f2b;
+}
+
+.logo span{
+    color:#7b6653;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#2e241f;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:#b45f2b;
+}
+
+/* HERO */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:40px;
+    padding:70px 0;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.badge{
+    color:#b45f2b;
+    font-weight:700;
+    margin-bottom:10px;
+    letter-spacing:2px;
+}
+
+.hero h2{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+    max-width:600px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 35px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.btn-primary{
+    background:#b45f2b;
+    color:white;
+    box-shadow:0 6px 0 #6d3515;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    border:2px solid #b45f2b;
+    color:#b45f2b;
+}
+
+.btn-outline:hover{
+    background:#b45f2b;
+    color:white;
+}
+
+.hero-rating{
+    background:white;
+    padding:40px;
+    border-radius:40px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.rating-number{
+    font-size:4rem;
+    color:#b45f2b;
+    font-weight:900;
+}
+
+.rating-stars{
+    color:gold;
+    font-size:1.7rem;
+}
+
+/* SECTION */
+
+.section-title{
+    font-size:2.5rem;
+    margin:70px 0 30px;
+    border-left:8px solid #b45f2b;
+    padding-left:20px;
+}
+
+/* MENU */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.menu-card{
+    background:white;
+    border-radius:30px;
+    padding:25px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.07);
+    transition:0.3s;
+    cursor:pointer;
+    animation:fadeUp 0.8s ease;
+}
+
+.menu-card:hover{
+    transform:translateY(-8px);
+}
+
+.menu-icon{
+    font-size:3rem;
+    color:#b45f2b;
+    margin-bottom:15px;
+}
+
+.menu-card h3{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.menu-desc{
+    color:#7b6653;
+    margin-bottom:20px;
+}
+
+.price{
+    border-top:2px dotted #e0c7b2;
+    padding-top:15px;
+    font-size:1.7rem;
+    font-weight:900;
+}
+
+/* MINUMAN */
+
+.minuman-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.minuman-item{
+    background:white;
+    padding:18px 25px;
+    border-radius:50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:700;
+    transition:0.3s;
+    cursor:pointer;
+    animation:fadeUp 0.8s ease;
+}
+
+.minuman-item:hover{
+    background:#f7e4d3;
+    transform:scale(1.03);
+}
+
+/* KEUNGGULAN */
+
+.keunggulan{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin:80px 0;
+}
+
+.box-unggul{
+    background:white;
+    border-radius:35px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.box-unggul:hover{
+    transform:translateY(-8px);
+}
+
+.box-unggul i{
+    font-size:3rem;
+    color:#b45f2b;
+    margin-bottom:15px;
+}
+
+/* GALERI */
+
+.galeri-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.galeri-grid img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:30px;
+    transition:0.3s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.galeri-grid img:hover{
+    transform:scale(1.04);
+}
+
+/* COUNTER */
+
+.counter-box{
+    background:#b45f2b;
+    color:white;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    padding:50px;
+    border-radius:40px;
+    text-align:center;
+    margin:80px 0;
+}
+
+.counter-box h2{
+    font-size:3rem;
+}
+
+/* TESTIMONI */
+
+.grid-testi{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.kartu{
+    background:white;
+    padding:30px;
+    border-radius:35px;
+    box-shadow:0 12px 20px rgba(0,0,0,0.08);
+    animation:fadeUp 0.8s ease;
+}
+
+.header-kartu{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.avatar-bulat{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#b45f2b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-weight:900;
+    font-size:1.5rem;
+}
+
+.bintang{
+    color:gold;
+    margin:10px 0;
+}
+
+.teks-testi{
+    background:#fff6ef;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+/* LOKASI */
+
+.lokasi-section{
+    background:#ead7c2;
+    padding:40px;
+    border-radius:40px;
+    margin:80px 0;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:40px 0;
+    color:#7b6653;
+}
+
+/* WHATSAPP */
+
+.wa-float{
+    position:fixed;
+    width:70px;
+    height:70px;
+    background:#25D366;
+    bottom:25px;
+    right:25px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:2rem;
+    text-decoration:none;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+/* DARK MODE */
+
+.dark{
+    background:#1c1b1a;
+    color:white;
+}
+
+.dark .menu-card,
+.dark .kartu,
+.dark .minuman-item,
+.dark .box-unggul,
+.dark .hero-rating{
+    background:#2d2a28;
+    color:white;
+}
+
+.dark .menu-desc,
+.dark .footer{
+    color:#ddd;
+}
+
+/* BUTTON DARK */
+
+.dark-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:40px;
+    background:#2e241f;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:700px){
+
+.hero h2{
+    font-size:2.8rem;
+}
+
+.section-title{
+    font-size:2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADING -->
+
+<div id="loading">
+🍗 Pecel Seleraku
+</div>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/6289511748890" class="wa-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="container">
+
+<!-- NAVBAR -->
+
+<div class="top-bar">
+
+<div class="logo">
+<h1>Pecel Seleraku</h1>
+<span>Sambal Dadak & Ayam Segar</span>
+</div>
+
+<div class="nav-links">
+<a href="#menu">Menu</a>
+<a href="#galeri">Galeri</a>
+<a href="#testi">Testimoni</a>
+<a href="#lokasi">Lokasi</a>
+</div>
+
+<button onclick="darkMode()" class="dark-btn">
+🌙 Dark
+</button>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-text">
+
+<div class="badge">
+LEZATNYA PECEL KHAS NUSANTARA
+</div>
+
+<h2>
+Pecel Ayam<br>
+Asli Rempah.
+</h2>
+
+<p>
+Ayam ungkep bumbu tradisional, sambal dadak fresh,
+dan lalapan segar setiap hari.
+</p>
+
+<div class="hero-buttons">
+<a href="#menu" class="btn btn-primary">Lihat Menu</a>
+<a href="#lokasi" class="btn btn-outline">Lokasi</a>
+</div>
+
+</div>
+
+<div class="hero-rating">
+<div class="rating-number">4.9</div>
+<div class="rating-stars">★★★★★</div>
+<p>1.200+ Pelanggan</p>
+</div>
+
+</div>
+
+<!-- COUNTER -->
+
+<div class="counter-box">
+
+<div>
+<h2>12K+</h2>
+<p>Pelanggan</p>
+</div>
+
+<div>
+<h2>150+</h2>
+<p>Menu/Hari</p>
+</div>
+
+<div>
+<h2>4.9★</h2>
+<p>Rating</p>
+</div>
+
+</div>
+
+<!-- MENU -->
+
+<h2 class="section-title" id="menu">
+🔥 MENU ANDALAN
+</h2>
+
+<div class="menu-grid">
+
+<div class="menu-card">
+<div class="menu-icon">
+<i class="fas fa-drumstick-bite"></i>
+</div>
+<h3>Pecel Ayam</h3>
+<div class="menu-desc">
+Ayam rempah + sambal terasi
+</div>
+<div class="price">Rp28K</div>
+</div>
+
+<div class="menu-card">
+<div class="menu-icon">
+<i class="fas fa-fish"></i>
+</div>
+<h3>Pecel Lele</h3>
+<div class="menu-desc">
+Lele goreng garing + sambal bawang
+</div>
+<div class="price">Rp22K</div>
+</div>
+
+<div class="menu-card">
+<div class="menu-icon">
+<i class="fas fa-shrimp"></i>
+</div>
+<h3>Udang Goreng</h3>
+<div class="menu-desc">
+Udang crispy sambal ijo
+</div>
+<div class="price">Rp35K</div>
+</div>
+
+<div class="menu-card">
+<div class="menu-icon">
+<i class="fas fa-duck"></i>
+</div>
+<h3>Bebek Goreng</h3>
+<div class="menu-desc">
+Bebek muda sambal matah
+</div>
+<div class="price">Rp42K</div>
+</div>
+
+</div>
+
+<!-- MINUMAN -->
+
+<h2 class="section-title">
+☕ MINUMAN
+</h2>
+
+<div class="minuman-grid">
+
+<div class="minuman-item">
+<span>Es Teh Tarik</span>
+<span>6K</span>
+</div>
+
+<div class="minuman-item">
+<span>Jeruk Peras</span>
+<span>8K</span>
+</div>
+
+<div class="minuman-item">
+<span>Es Kelapa</span>
+<span>10K</span>
+</div>
+
+<div class="minuman-item">
+<span>Kopi Sereh</span>
+<span>7K</span>
+</div>
+
+</div>
+
+<!-- KEUNGGULAN -->
+
+<div class="keunggulan">
+
+<div class="box-unggul">
+<i class="fas fa-pepper-hot"></i>
+<h3>Sambal Dadak</h3>
+<p>Fresh dibuat setiap hari.</p>
+</div>
+
+<div class="box-unggul">
+<i class="fas fa-leaf"></i>
+<h3>Lalapan Segar</h3>
+<p>Sayur hijau fresh dari pasar.</p>
+</div>
+
+<div class="box-unggul">
+<i class="fas fa-fire"></i>
+<h3>Bumbu Tradisional</h3>
+<p>Resep turun-temurun khas Nusantara.</p>
+</div>
+
+</div>
+
+<!-- GALERI -->
+
+<h2 class="section-title" id="galeri">
+📸 GALERI WARUNG
+</h2>
+
+<div class="galeri-grid">
+
+<img src="39eeacb6a41a52ecb0e2f710011e45db.png">
+<img src="2724889521.jpg">
+<img src="peceludangcvr.jpg">
+<img src="433d28c07a9b05f671d3710a90804934.png">
+<img src="6563db043c35f.jpeg">
+<img src="ES-JERUK-murni.jpg">
+
+</div>
+
+<!-- TESTIMONI -->
+
+<h2 class="section-title" id="testi">
+⭐ TESTIMONI
+</h2>
+
+<div class="grid-testi">
+
+<div class="kartu">
+
+<div class="header-kartu">
+<div class="avatar-bulat">AR</div>
+
+<div>
+<h3>ALJEROU</h3>
+<p>KINCIR</p>
+</div>
+
+</div>
+
+<div class="bintang">
+★★★★★
+</div>
+
+<div class="teks-testi">
+Pecel ayamnya juara banget,
+sambalnya nampol!
+</div>
+
+</div>
+
+<div class="kartu">
+
+<div class="header-kartu">
+<div class="avatar-bulat">DW</div>
+
+<div>
+<h3>RAVEN</h3>
+<p>TANJUNG PRIUK</p>
+</div>
+
+</div>
+
+<div class="bintang">
+★★★★★
+</div>
+
+<div class="teks-testi">
+Lele gorengnya garing dan gurih.
+</div>
+
+</div>
+
+<div class="kartu">
+
+<div class="header-kartu">
+<div class="avatar-bulat">SN</div>
+
+<div>
+<h3>FAHRI</h3>
+<p>CAKUNG</p>
+</div>
+
+</div>
+
+<div class="bintang">
+★★★★★
+</div>
+
+<div class="teks-testi">
+Tahu tempe bacemnya bikin nagih.
+</div>
+
+</div>
+
+</div>
+
+<!-- LOKASI -->
+
+<div class="lokasi-section" id="lokasi">
+
+<div>
+<h2>📍 Lokasi Warung</h2>
+<p>Jl. Pemadam No. 10, Jakarta</p>
+<p>09.00 - 21.00 WIB</p>
+<p>0895-1174-8890</p>
+</div>
+
+<div>
+<iframe
+src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="350"
+height="250"
+style="border:0;border-radius:20px;">
+</iframe>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+<p>© 2026 Pecel Seleraku</p>
+<p>Rempah asli, pedas nendang 🌶️</p>
+</div>
+
+</div>
+
+<script>
+
+window.addEventListener("load",function(){
+    document.getElementById("loading").style.display="none";
+});
+
+function darkMode(){
+    document.body.classList.toggle("dark");
+}
+
+</script>
+
+</body>
+</html>
